@@ -16,3 +16,4 @@ receipt, which the employee confirms or changes before submitting.
 
 - Masking personal data before the category-suggestion agent sees it — the
 claim text it reads is not treated as sensitive.
+
