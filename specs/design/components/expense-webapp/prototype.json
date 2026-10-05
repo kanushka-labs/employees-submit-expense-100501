@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 3,
+  "name": "Expense Claims & Payroll Export",
+  "entryScreen": "screen.employee-claims",
+  "roles": [
+    { "id": "Employee", "name": "Employee" },
+    { "id": "Manager", "name": "Manager" },
+    { "id": "PayrollExporter", "name": "Finance" }
+  ],
+  "states": [
+    { "id": "state.default", "name": "Default" },
+    { "id": "state.empty", "name": "Nothing to show" },
+    { "id": "state.validation-error", "name": "Validation errors" },
+    { "id": "state.failed", "name": "Request failed" }
+  ],
+  "screens": [
+    { "id": "screen.employee-claims", "name": "My claims", "roleIds": ["Employee"] },
+    { "id": "screen.new-claim", "name": "New claim", "roleIds": ["Employee"] },
+    { "id": "screen.claim-detail", "name": "Claim detail", "roleIds": ["Employee"] },
+    { "id": "screen.manager-queue", "name": "Pending claims", "roleIds": ["Manager"] },
+    { "id": "screen.claim-review", "name": "Review claim", "roleIds": ["Manager"] },
+    { "id": "screen.finance-export", "name": "Payroll export", "roleIds": ["PayrollExporter"] },
+    { "id": "screen.account", "name": "Account", "roleIds": ["Employee", "Manager", "PayrollExporter"] },
+    { "id": "screen.settings", "name": "Settings", "roleIds": ["Employee", "Manager", "PayrollExporter"] },
+    { "id": "screen.signed-out", "name": "Signed out", "roleIds": ["Employee", "Manager", "PayrollExporter"] }
+  ],
+  "flows": [
+    {
+      "id": "flow.submit-expenses",
+      "name": "Submit expenses",
+      "roleId": "Employee",
+      "screenIds": ["screen.employee-claims", "screen.new-claim", "screen.claim-detail"]
+    },
+    {
+      "id": "flow.approvals",
+      "name": "Approvals",
+      "roleId": "Manager",
+      "screenIds": ["screen.manager-queue", "screen.claim-review"]
+    },
+    {
+      "id": "flow.payroll-export",
+      "name": "Payroll export",
+      "roleId": "PayrollExporter",
+      "screenIds": ["screen.finance-export"]
+    }
+  ]
+}
