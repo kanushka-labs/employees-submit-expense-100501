@@ -1,0 +1,13 @@
+{
+  "name": "payroll-service",
+  "resource": {
+    "name": "payroll-service",
+    "description": "Receives the batch of approved expense claims finance exports for payment. No specific payroll system has been chosen yet."
+  },
+  "suggestions": [
+    { "name": "ADP", "description": "Widely used payroll provider with a REST payroll API." },
+    { "name": "Gusto", "description": "Payroll API popular with small and mid-size companies." },
+    { "name": "Workday", "description": "Enterprise HR/payroll suite with a SOAP/REST integration layer." },
+    { "name": "Paychex", "description": "Payroll provider with a REST API for earnings/deductions imports." }
+  ]
+}
